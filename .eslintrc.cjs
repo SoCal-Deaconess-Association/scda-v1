@@ -33,6 +33,8 @@ module.exports = {
     react: { version: 'detect' },
   },
   rules: {
+    'no-console': 'off',
+
     '@typescript-eslint/no-shadow': 'error',
     'no-shadow': 'off',
 

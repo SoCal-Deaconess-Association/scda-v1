@@ -6,20 +6,20 @@
     "noUncheckedIndexedAccess": true,
     "allowJs": true,
     "checkJs": false,
-    "baseUrl": "src/scda-story/",
+    "baseUrl": ".",
     "paths": {
-      "@api/*": ["api/*"],
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@contexts/*": ["contexts/*"],
-      "@hooks/*": ["hooks/*"],
-      "@pages/*": ["pages/*"],
-      "@slices/*": ["slices/*"],
-      "@models/*": ["models/*"]
+      "@api/*": ["src/api/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@slices/*": ["src/slices/*"],
+      "@models/*": ["src/models/*"]
     },
     "noErrorTruncation": true //stops truncating larger TypeScript types on hover
   },
-  "include": ["src"],
+  "include": ["src", "env.d.ts"],
   "references": [
     { "path": "./tsconfig.eslint.json" },
     { "path": "./tsconfig.config.files.json" }
