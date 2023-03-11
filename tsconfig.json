@@ -1,0 +1,27 @@
+{
+  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": "src",
+    "paths": {
+      "@api/*": ["api/*"],
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@contexts/*": ["contexts/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@slices/*": ["slices/*"],
+      "@models/*": ["models/*"]
+    },
+    "noErrorTruncation": true //stops truncating larger TypeScript types on hover
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "./tsconfig.eslint.json" },
+    { "path": "./tsconfig.config.files.json" }
+  ]
+}

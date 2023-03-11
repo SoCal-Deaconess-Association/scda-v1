@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "types": ["@types/node"],
+    "allowJs": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": [".eslintrc.cjs"]
+}

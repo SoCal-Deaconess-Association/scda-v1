@@ -1,0 +1,6 @@
+*.css
+build
+dist
+node_modules
+Template.tsx
+**/*.js
