@@ -5,11 +5,14 @@
   "repository": "https://github.com/SoCal-Deaconess-Association/scda-story.git",
   "author": "Tristan Chilvers <tmchilvers@gmail.com>",
   "type": "module",
+  "homepage": "",
   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "archive": "git checkout %npm_config_name% && git tag archive/%npm_config_name% && git push origin --tags && git checkout main && git branch -d %npm_config_name% && git push origin :%npm_config_name% && git branch -a"
+    "archive": "git checkout %npm_config_name% && git tag archive/%npm_config_name% && git push origin --tags && git checkout main && git branch -d %npm_config_name% && git push origin :%npm_config_name% && git branch -a",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -38,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^5.0.0",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5",
