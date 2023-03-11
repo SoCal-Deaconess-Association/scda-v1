@@ -5,7 +5,7 @@
   "repository": "https://github.com/SoCal-Deaconess-Association/scda-story.git",
   "author": "Tristan Chilvers <tmchilvers@gmail.com>",
   "type": "module",
-  "homepage": "",
+  "homepage": "http://socal-deaconess-association.github.io/scda-story",
   "scripts": {
     "start": "vite",
     "dev": "vite",
