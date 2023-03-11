@@ -10,6 +10,7 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "archive": "git checkout %npm_config_name% && git tag archive/%npm_config_name% && git push origin --tags && git checkout main && git branch -d %npm_config_name% && git push origin :%npm_config_name% && git branch -a",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d dist"

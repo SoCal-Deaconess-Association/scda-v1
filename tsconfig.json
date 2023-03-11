@@ -6,7 +6,7 @@
     "noUncheckedIndexedAccess": true,
     "allowJs": true,
     "checkJs": false,
-    "baseUrl": "src",
+    "baseUrl": "src/scda-story/",
     "paths": {
       "@api/*": ["api/*"],
       "@assets/*": ["assets/*"],
