@@ -3,8 +3,10 @@ import { GreetingsIcon } from '@assets/icons/GreetingsIcon';
 import { HistoryIcon } from '@assets/icons/HistoryIcon';
 import { LogoIcon } from '@assets/icons/LogoIcon';
 import { MenuIcon } from '@assets/icons/MenuIcon';
+import { PAGES, PageType } from '@assets/utils/pages.utils';
 import { Menu, Tab } from '@headlessui/react';
 import { Fragment } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 /**
  * —————————————————————————————————————————————————————
@@ -64,78 +66,109 @@ ${active ? 'bg-primarySelect text-contrastText font-bold' : ''}
  *
  * - For small devices, it turns the tabs into a hamburger dropdown.
  */
-export const Nav = () => (
-  <div className="bg-primaryDark flex w-full px-10 py-4 shadow-md shadow-primary justify-between items-center">
-    <LogoIcon />
+export const Nav = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    {/**
-     * .....................................................
-     * Mobile / Tablet Layout
-     */}
+  return (
+    <div className="bg-primaryDark flex w-full px-10 py-4 shadow-md shadow-primary justify-between items-center">
+      <LogoIcon />
 
-    <Menu>
-      <Menu.Button className="lg:hidden">
-        <MenuIcon color="white" />
-      </Menu.Button>
-      <Menu.Items className="lg:hidden absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-        <div className="px-1 py-1 ">
-          <Menu.Item>
-            {({ active }) => (
-              <button type="button" className={menuStyle(active)}>
+      {/**
+       * .....................................................
+       * Mobile / Tablet Layout
+       */}
+
+      <Menu>
+        <Menu.Button className="lg:hidden">
+          <MenuIcon color="white" />
+        </Menu.Button>
+        <Menu.Items className="lg:hidden absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="px-1 py-1 ">
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  type="button"
+                  className={menuStyle(active)}
+                  onClick={() => navigate('/history')}
+                >
+                  HISTORY
+                </button>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  type="button"
+                  className={menuStyle(active)}
+                  onClick={() => navigate('/greetings')}
+                >
+                  GREETINGS & STORIES
+                </button>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <button type="button" className={menuStyle(active)}>
+                  ANTHEM
+                </button>
+              )}
+            </Menu.Item>
+          </div>
+        </Menu.Items>
+      </Menu>
+
+      {/**
+       * .....................................................
+       * Desktop Layout
+       */}
+
+      <Tab.Group>
+        <Tab.List className=" gap-6 hidden lg:flex">
+          <Tab as={Fragment}>
+            {() => (
+              <button
+                type="button"
+                className={`${tabStyle(
+                  location.pathname === PAGES[PageType.history].navigate,
+                )} w-40`}
+                onClick={() => navigate(PAGES[PageType.history].navigate)}
+              >
+                <HistoryIcon width="25px" fill="#ffffff" />
                 HISTORY
               </button>
             )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <button type="button" className={menuStyle(active)}>
+          </Tab>
+          <Tab as={Fragment}>
+            {() => (
+              <button
+                type="button"
+                className={`${tabStyle(
+                  location.pathname === PAGES[PageType.greetings].navigate,
+                )} w-64`}
+                onClick={() => navigate(PAGES[PageType.greetings].navigate)}
+              >
+                <GreetingsIcon width="25px" fill="#ffffff" />
                 GREETINGS & STORIES
               </button>
             )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <button type="button" className={menuStyle(active)}>
+          </Tab>
+          <Tab as={Fragment}>
+            {() => (
+              <button
+                type="button"
+                className={`${tabStyle(
+                  location.pathname === PAGES[PageType.anthem].navigate,
+                )} w-40`}
+                onClick={() => navigate(PAGES[PageType.anthem].navigate)}
+              >
+                <AnthemIcon width="25px" fill="#ffffff" />
                 ANTHEM
               </button>
             )}
-          </Menu.Item>
-        </div>
-      </Menu.Items>
-    </Menu>
-
-    {/**
-     * .....................................................
-     * Desktop Layout
-     */}
-
-    <Tab.Group>
-      <Tab.List className=" gap-6 hidden lg:flex">
-        <Tab as={Fragment}>
-          {({ selected }) => (
-            <button type="button" className={`${tabStyle(selected)} w-40`}>
-              <HistoryIcon width="25px" fill="#ffffff" />
-              HISTORY
-            </button>
-          )}
-        </Tab>
-        <Tab as={Fragment}>
-          {({ selected }) => (
-            <button type="button" className={`${tabStyle(selected)} w-64`}>
-              <GreetingsIcon width="25px" fill="#ffffff" />
-              GREETINGS & STORIES
-            </button>
-          )}
-        </Tab>
-        <Tab as={Fragment}>
-          {({ selected }) => (
-            <button type="button" className={`${tabStyle(selected)} w-40`}>
-              <AnthemIcon width="25px" fill="#ffffff" />
-              ANTHEM
-            </button>
-          )}
-        </Tab>
-      </Tab.List>
-    </Tab.Group>
-  </div>
-);
+          </Tab>
+        </Tab.List>
+      </Tab.Group>
+    </div>
+  );
+};

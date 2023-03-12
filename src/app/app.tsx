@@ -1,10 +1,12 @@
 import { INTERNAL_CONSOLE_STYLE } from '@assets/style/global.style';
+import { PAGES, PageType } from '@assets/utils/pages.utils';
 import { displaySignature } from '@assets/utils/tmc.util';
 import { Nav } from '@components/nav';
 import { GreetingsPage } from '@pages/Greetings.page';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import './app.css';
 
 /**
@@ -71,7 +73,14 @@ const App = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Nav />
-      <GreetingsPage />
+      <Routes>
+        <Route path="/*" element={<>history</>} />
+        <Route
+          path={PAGES[PageType.greetings].navigate}
+          element={<GreetingsPage />}
+        />
+        <Route path={PAGES[PageType.anthem].navigate} element={<>anthem</>} />
+      </Routes>
     </ErrorBoundary>
   );
 };
@@ -81,6 +90,8 @@ const App = () => {
  */
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
