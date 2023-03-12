@@ -1,8 +1,5 @@
-export type Greeters = {
-  [name: string]: Greeter;
-};
-
 export type Greeter = {
+  id: number;
   name: string;
   year: number;
   province: Province;
@@ -22,112 +19,130 @@ export enum Province {
   camarinesSur = 'Camarines Sur',
 }
 
-export const Greeters: Greeters = {
-  'Agnes Dauz Cadlaon': {
+export const Greeters: Greeter[] = [
+  {
+    id: 0,
     name: 'Agnes Dauz Cadlaon',
     year: 1981,
     province: Province.pangasinan,
   },
 
-  'Alice Pinky Ramirez Oreas': {
+  {
+    id: 1,
     name: 'Alice Pinky Ramirez Oreas',
     year: 1987,
     province: Province.pangasinan,
   },
 
-  'Araceli Gorospe Lambinicio': {
+  {
+    id: 2,
     name: 'Araceli Gorospe Lambinicio',
     year: 1961,
     province: Province.pampanga,
   },
 
-  'Brenda Faye Reyes DePano': {
+  {
+    id: 3,
     name: 'Brenda Faye Reyes DePano',
     year: 1983,
     province: Province.nuevaEcija,
   },
 
-  'Crispina Estaris': {
+  {
+    id: 4,
     name: 'Crispina Estaris',
     year: 1954,
     province: Province.cagayan,
   },
 
-  'Edna Soriano Santos': {
+  {
+    id: 5,
     name: 'Edna Soriano Santos',
     year: 1959,
     province: Province.manila,
   },
 
-  'Eunice Bautista Laureano': {
+  {
+    id: 6,
     name: 'Eunice Bautista Laureano',
     year: 1955,
     province: Province.bataan,
   },
 
-  'Fe Isabel Cruz Gorospe': {
+  {
+    id: 7,
     name: 'Fe Isabel Cruz Gorospe',
     year: 1957,
     province: Province.manila,
   },
 
-  'Helen Rabina Sicat': {
+  {
+    id: 8,
     name: 'Helen Rabina Sicat',
     year: 1973,
     province: Province.tarlac,
   },
 
-  'Lila Valencia Lusung': {
+  {
+    id: 9,
     name: 'Lila Valencia Lusung',
     year: 1952,
     province: Province.tarlac,
   },
 
-  'Noemi Bagasin Villanueva': {
+  {
+    id: 10,
     name: 'Noemi Bagasin Villanueva',
     year: 1983,
     province: Province.cagayan,
   },
 
-  'Olive Asis Dugay': {
+  {
+    id: 11,
     name: 'Olive Asis Dugay',
     year: 1981,
     province: Province.nuevaVizcaya,
   },
 
-  'Pacita Gomintong DelAmen': {
+  {
+    id: 12,
     name: 'Pacita Gomintong DelAmen',
     year: 1967,
     province: Province.llocosSur,
   },
 
-  'Rosario Nicolas Pangilinan': {
+  {
+    id: 13,
     name: 'Rosario Nicolas Pangilinan',
     year: 1963,
     province: Province.bulacan,
   },
 
-  'Fabiola Sanchez Carreon': {
+  {
+    id: 14,
     name: 'Fabiola Sanchez Carreon',
     year: 1973,
     province: Province.pampanga,
   },
 
-  'Cecil Bucud Arceo': {
+  {
+    id: 15,
     name: 'Cecil Bucud Arceo',
     year: 1996,
     province: Province.pampanga,
   },
 
-  'Erlinda Villanueva Pastrana': {
+  {
+    id: 16,
     name: 'Erlinda Villanueva Pastrana',
     year: 1961,
     province: Province.camarinesSur,
   },
 
-  'Perla Cunanan Baker': {
+  {
+    id: 17,
     name: 'Perla Cunanan Baker',
     year: 1971,
     province: Province.tarlac,
   },
-};
+];

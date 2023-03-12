@@ -6,7 +6,7 @@ import { GreetingsPage } from '@pages/Greetings.page';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './app.css';
 
 /**

@@ -23,15 +23,15 @@ export type PageContent = {
  */
 export const PAGES: { [key in PageType]: PageContent } = {
   [PageType.history]: {
-    label: 'History',
+    label: 'HISTORY',
     navigate: '/scda-story/history',
   },
   [PageType.greetings]: {
-    label: 'Greetings',
+    label: 'GREETINGS & STORIES',
     navigate: '/scda-story/greetings',
   },
   [PageType.anthem]: {
-    label: 'Anthem',
+    label: 'ANTHEM',
     navigate: '/scda-story/anthem',
   },
 };
