@@ -1,9 +1,15 @@
 import { AnthemIcon } from '@assets/icons/AnthemIcon';
 import { GreetingsIcon } from '@assets/icons/GreetingsIcon';
 import { HistoryIcon } from '@assets/icons/HistoryIcon';
+import { LogoIcon } from '@assets/icons/LogoIcon';
 import { Tab } from '@headlessui/react';
 import { Fragment } from 'react';
 
+/**
+ * Style the tab buttons.
+ *
+ * @param selected If the current tab is selected.
+ */
 const tabStyle = (selected: boolean) => `
 flex
 text-contrastText 
@@ -16,6 +22,7 @@ p-2
 px-6
 gap-2
 focus:outline-none
+h-fit
 
 ${
   selected
@@ -30,8 +37,8 @@ ${
  * - For small devices, it turns the tabs into a hamburger dropdown.
  */
 export const Nav = () => (
-  <div className="bg-primaryDark flex px-10 py-4 shadow-md justify-between">
-    <div>asdfasdf</div>
+  <div className="bg-primaryDark flex px-10 py-4 shadow-md justify-between items-center">
+    <LogoIcon />
     <Tab.Group>
       <Tab.List className="flex gap-6">
         <Tab as={Fragment}>

@@ -49,7 +49,7 @@ const App = () => {
    * ! Do NOT define any useEffects below here !
    */
 
-  if (DEV_TOOLS)
+  if (DEV_TOOLS === 'true')
     console.log(
       '%c[internal] | Dev Tools are enabled.',
       INTERNAL_CONSOLE_STYLE,
