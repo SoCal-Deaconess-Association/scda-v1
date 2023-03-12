@@ -1,4 +1,17 @@
 {
   "dotenv.enableAutocloaking": false,
-  "cSpell.words": ["headlessui", "predeploy", "scda", "tailwindcss"]
+  "cSpell.words": [
+    "bulacan",
+    "cagayan",
+    "camarines",
+    "ECIJA",
+    "headlessui",
+    "llocos",
+    "nueva",
+    "pampanga",
+    "PANGASINAN",
+    "predeploy",
+    "scda",
+    "tailwindcss"
+  ]
 }

@@ -1,6 +1,7 @@
 import { INTERNAL_CONSOLE_STYLE } from '@assets/style/global.style';
 import { displaySignature } from '@assets/utils/tmc.util';
 import { Nav } from '@components/nav';
+import { GreetingsPage } from '@pages/Greetings.page';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
@@ -70,6 +71,7 @@ const App = () => {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Nav />
+      <GreetingsPage />
     </ErrorBoundary>
   );
 };

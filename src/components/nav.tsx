@@ -65,7 +65,7 @@ ${active ? 'bg-primarySelect text-contrastText font-bold' : ''}
  * - For small devices, it turns the tabs into a hamburger dropdown.
  */
 export const Nav = () => (
-  <div className="bg-primaryDark flex px-10 py-4 shadow-md shadow-primary justify-between items-center">
+  <div className="bg-primaryDark flex w-full px-10 py-4 shadow-md shadow-primary justify-between items-center">
     <LogoIcon />
 
     {/**
