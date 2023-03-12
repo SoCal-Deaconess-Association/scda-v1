@@ -11,10 +11,10 @@ export const GreetingsPage = () => {
 
   return (
     <div className="flex w-full h-full my-6 justify-center items-center overflow-hidden">
-      <div className="flex w-full h-full mx-6 p-4 bg-backgroundTransparent rounded-xl">
-        <div className="flex flex-col w-full h-full py-6 pl-4 pr-8 overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
-          {currentGreeter !== null ? (
-            <div className="flex">
+      <div className="flex flex-col w-full h-full mx-6 p-4 bg-backgroundTransparent rounded-xl">
+        {currentGreeter !== null ? (
+          <div className="flex flex-col items-center w-full">
+            <div className="flex w-full">
               <div className="w-1/6">
                 <button
                   className="bg-primaryDark h-fit p-2 rounded-md text-contrastText"
@@ -24,19 +24,24 @@ export const GreetingsPage = () => {
                   BACK TO GREETERS
                 </button>
               </div>
-              <div className="flex flex-col w-4/6 justify-center items-center font-bold text-xl text-primaryDark pb-6">
+              <div className="flex flex-col w-4/6 justify-center items-center font-bold text-xl text-primaryDark pb-2">
                 <span>{Greeters[currentGreeter]?.name}</span>
                 <span className="font-normal text-primary">
                   {currentGreeter + 1} / {Greeters.length}
                 </span>
               </div>
             </div>
-          ) : (
-            <div className="flex flex-col justify-center items-center font-bold text-xl text-primaryDark pb-6">
+            <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
+          </div>
+        ) : (
+          <div className="flex flex-col items-center">
+            <div className="flex flex-col justify-center items-center font-bold text-xl text-primaryDark pb-2">
               {PAGES[PageType.greetings].label}
             </div>
-          )}
-
+            <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
+          </div>
+        )}
+        <div className="flex flex-col w-full h-full py-6 pl-4 pr-8 overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
           {currentGreeter !== null ? (
             /**
              * CURRENT GREETER VIEW
