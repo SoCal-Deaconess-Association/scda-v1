@@ -86,30 +86,40 @@ export const Nav = () => {
         <Menu.Items className="lg:hidden absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1 ">
             <Menu.Item>
-              {({ active }) => (
+              {() => (
                 <button
                   type="button"
-                  className={menuStyle(active)}
-                  onClick={() => navigate('/history')}
+                  className={`${menuStyle(
+                    location.pathname === PAGES[PageType.history].navigate,
+                  )} w-40`}
+                  onClick={() => navigate(PAGES[PageType.history].navigate)}
                 >
                   HISTORY
                 </button>
               )}
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (
+              {() => (
                 <button
                   type="button"
-                  className={menuStyle(active)}
-                  onClick={() => navigate('/greetings')}
+                  className={`${menuStyle(
+                    location.pathname === PAGES[PageType.greetings].navigate,
+                  )} w-40`}
+                  onClick={() => navigate(PAGES[PageType.greetings].navigate)}
                 >
                   GREETINGS & STORIES
                 </button>
               )}
             </Menu.Item>
             <Menu.Item>
-              {({ active }) => (
-                <button type="button" className={menuStyle(active)}>
+              {() => (
+                <button
+                  type="button"
+                  className={`${menuStyle(
+                    location.pathname === PAGES[PageType.anthem].navigate,
+                  )} w-40`}
+                  onClick={() => navigate(PAGES[PageType.anthem].navigate)}
+                >
                   ANTHEM
                 </button>
               )}
