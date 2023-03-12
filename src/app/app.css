@@ -11,4 +11,10 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
+  background: rgb(195, 255, 245);
+  background: linear-gradient(
+    13deg,
+    rgba(195, 255, 245, 1) 0%,
+    rgba(243, 252, 255, 1) 72%
+  );
 }

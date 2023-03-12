@@ -21,6 +21,9 @@ module.exports = {
         background: '#f3fcff',
         contrastText: '#ffffff',
       },
+      screens: {
+        tablet: '1024px',
+      },
     },
   },
   plugins: [],
