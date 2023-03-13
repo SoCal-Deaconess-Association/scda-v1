@@ -13,7 +13,7 @@ export const GreetingsPage = () => {
     <div className="flex w-full h-full my-6 justify-center items-center overflow-hidden">
       <div className="flex flex-col w-full h-full mx-6 p-4 bg-backgroundTransparent rounded-xl">
         {currentGreeter !== null ? (
-          <div className="flex flex-col items-center w-full">
+          <div className="flex flex-col items-center w-full h-1/6">
             <div className="flex w-full">
               <div className="w-1/6">
                 <button
@@ -41,17 +41,30 @@ export const GreetingsPage = () => {
             <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
           </div>
         )}
-        <div className="flex flex-col w-full h-full py-6 pl-4 pr-8 overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
+        <div className="flex flex-col w-full h-5/6 pl-4 pr-8 overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
           {currentGreeter !== null ? (
             /**
              * CURRENT GREETER VIEW
              */
 
             <div className="w-full h-full align-middle justify-center">
-              <div className="flex w-full h-full items-center justify-center">
-                VIDEO CONTENT HERE
+              <div className="flex w-full h-5/6 pb-6 items-center gap-20 justify-center">
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                <video key={currentGreeter + 1} className="h-full" controls>
+                  <source
+                    src={`/videos/greeting_${currentGreeter + 1}.mp4`}
+                    type="video/mp4"
+                  />
+                  Your current browser does not support the video tag. Try
+                  running on Google Chrome browser.
+                </video>
+                <img
+                  src={`/images/maps/map_${currentGreeter + 1}.jpg`}
+                  className="h-full"
+                  alt="Map of the Philippines with a red circle dictating where the Greeter is from."
+                />
               </div>
-              <div className="flex justify-between pb-8">
+              <div className="flex justify-between py-8">
                 <button
                   className={buttonStyle}
                   type="button"
