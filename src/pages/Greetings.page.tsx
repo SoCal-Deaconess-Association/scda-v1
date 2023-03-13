@@ -1,13 +1,50 @@
 import { PlayIcon } from '@assets/icons/PlayIcon';
 import { Greeters } from '@assets/utils/greeters.utils';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
-import { useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import JSZip from 'jszip';
+// @ts-expect-error types do not exist
+// eslint-disable-next-line import/no-extraneous-dependencies
+import JSZipUtils from 'jszip-utils';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export const GreetingsPage = () => {
   const [currentGreeter, setCurrentGreeter] = useState<number | null>(null);
+  const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
 
   const buttonStyle = 'bg-secondary p-2 rounded-md text-contrastText';
+
+  useEffect(() => {
+    if (currentGreeter !== null) {
+      const jsZip = new JSZip();
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+      JSZipUtils.getBinaryContent(
+        `public/videos/greeting_${currentGreeter + 1}.zip`,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (err: any, data: any) => {
+          if (err) {
+            throw err;
+          }
+
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+          jsZip.loadAsync(data).then(
+            (zip) => {
+              void zip
+                .file(`greeting_${currentGreeter + 1}.mp4`)
+                ?.async('blob')
+                .then((res) => {
+                  setVideoBlob(res);
+                });
+            },
+            (e) => {
+              console.log(e);
+            },
+          );
+        },
+      );
+    }
+  }, [currentGreeter]);
 
   return (
     <div className="flex w-full h-full my-6 justify-center items-center overflow-hidden">
@@ -19,7 +56,10 @@ export const GreetingsPage = () => {
                 <button
                   className="bg-primaryDark h-fit p-2 rounded-md text-contrastText"
                   type="button"
-                  onClick={() => setCurrentGreeter(null)}
+                  onClick={() => {
+                    setCurrentGreeter(null);
+                    setVideoBlob(null);
+                  }}
                 >
                   BACK TO GREETERS
                 </button>
@@ -49,15 +89,23 @@ export const GreetingsPage = () => {
 
             <div className="w-full h-full align-middle justify-center">
               <div className="flex w-full h-5/6 pb-6 items-center gap-20 justify-center">
-                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-                <video key={currentGreeter + 1} className="h-full" controls>
-                  <source
-                    src={`/videos/greeting_${currentGreeter + 1}.mp4`}
-                    type="video/mp4"
-                  />
-                  Your current browser does not support the video tag. Try
-                  running on Google Chrome browser.
-                </video>
+                {!videoBlob ? (
+                  <div>loading...</div>
+                ) : (
+                  /* eslint-disable-next-line jsx-a11y/media-has-caption */
+                  <video
+                    key={currentGreeter + 1}
+                    className="h-full rounded-lg"
+                    controls
+                  >
+                    <source
+                      src={window.URL.createObjectURL(videoBlob)}
+                      type="video/mp4"
+                    />
+                    Your current browser does not support the video tag. Try
+                    running on Google Chrome browser.
+                  </video>
+                )}
                 <img
                   src={`/images/maps/map_${currentGreeter + 1}.jpg`}
                   className="h-full"
@@ -68,11 +116,12 @@ export const GreetingsPage = () => {
                 <button
                   className={buttonStyle}
                   type="button"
-                  onClick={() =>
-                    setCurrentGreeter(
-                      currentGreeter > 0 ? currentGreeter - 1 : currentGreeter,
-                    )
-                  }
+                  onClick={() => {
+                    if (currentGreeter > 0) {
+                      setCurrentGreeter(currentGreeter - 1);
+                      setVideoBlob(null);
+                    }
+                  }}
                 >
                   PREVIOUS
                 </button>
@@ -86,13 +135,12 @@ export const GreetingsPage = () => {
                 <button
                   className={buttonStyle}
                   type="button"
-                  onClick={() =>
-                    setCurrentGreeter(
-                      currentGreeter + 1 < Greeters.length
-                        ? currentGreeter + 1
-                        : currentGreeter,
-                    )
-                  }
+                  onClick={() => {
+                    if (currentGreeter + 1 < Greeters.length) {
+                      setCurrentGreeter(currentGreeter + 1);
+                      setVideoBlob(null);
+                    }
+                  }}
                 >
                   NEXT
                 </button>
