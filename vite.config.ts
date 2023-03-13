@@ -18,4 +18,5 @@ export default defineConfig({
       '@models': '/src/models',
     },
   },
+  assetsInclude: ['**/*.zip'],
 });

@@ -20,7 +20,7 @@ export const GreetingsPage = () => {
       const jsZip = new JSZip();
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
       JSZipUtils.getBinaryContent(
-        `public/videos/greeting_${currentGreeter + 1}.zip`,
+        Greeters[currentGreeter]?.video,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (err: any, data: any) => {
           if (err) {
@@ -107,7 +107,7 @@ export const GreetingsPage = () => {
                   </video>
                 )}
                 <img
-                  src={`/images/maps/map_${currentGreeter + 1}.jpg`}
+                  src={Greeters[currentGreeter]?.map}
                   className="h-full"
                   alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                 />
