@@ -107,6 +107,7 @@ export const GreetingsPage = () => {
                   </video>
                 )}
                 <img
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   src={Greeters[currentGreeter]?.map}
                   className="h-full"
                   alt="Map of the Philippines with a red circle dictating where the Greeter is from."
