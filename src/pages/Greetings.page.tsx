@@ -125,7 +125,7 @@ export const GreetingsPage = () => {
                   alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                 />
               </div>
-              <div className="flex w-1/5  gap-10 py-8">
+              <div className="flex w-full justify-center  gap-10 py-8">
                 <button
                   className={buttonStyle}
                   type="button"
