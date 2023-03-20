@@ -30,6 +30,7 @@ px-6
 gap-2
 focus:outline-none
 h-fit
+text-xl
 
 ${
   selected
@@ -84,7 +85,7 @@ export const Nav = () => {
           <MenuIcon color="white" />
         </Menu.Button>
         <Menu.Items className="lg:hidden absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="px-1 py-1 ">
+          <div className="px-1 py-1">
             <Menu.Item>
               {() => (
                 <button
@@ -134,14 +135,14 @@ export const Nav = () => {
        */}
 
       <Tab.Group>
-        <Tab.List className=" gap-6 hidden lg:flex">
+        <Tab.List className="gap-6 hidden lg:flex">
           <Tab as={Fragment}>
             {() => (
               <button
                 type="button"
                 className={`${tabStyle(
                   location.pathname === PAGES[PageType.history].navigate,
-                )} w-40`}
+                )} w-48 flex items-center`}
                 onClick={() => navigate(PAGES[PageType.history].navigate)}
               >
                 <HistoryIcon width="25px" fill="#ffffff" />
@@ -155,7 +156,7 @@ export const Nav = () => {
                 type="button"
                 className={`${tabStyle(
                   location.pathname === PAGES[PageType.greetings].navigate,
-                )} w-64`}
+                )} w-80`}
                 onClick={() => navigate(PAGES[PageType.greetings].navigate)}
               >
                 <GreetingsIcon width="25px" fill="#ffffff" />
@@ -169,7 +170,7 @@ export const Nav = () => {
                 type="button"
                 className={`${tabStyle(
                   location.pathname === PAGES[PageType.anthem].navigate,
-                )} w-40`}
+                )} w-48`}
                 onClick={() => navigate(PAGES[PageType.anthem].navigate)}
               >
                 <AnthemIcon width="25px" fill="#ffffff" />

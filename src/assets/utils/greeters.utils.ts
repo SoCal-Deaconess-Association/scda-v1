@@ -41,7 +41,7 @@ import map_18 from '@assets/images/maps/map_18.jpg';
 export type Greeter = {
   id: number;
   name: string;
-  year: number;
+  year: number | null;
   province: Province;
   video: any;
   map: any;
@@ -137,7 +137,7 @@ export const Greeters: Greeter[] = [
   {
     id: 8,
     name: 'Helen Rabina Sicat',
-    year: 1973,
+    year: null,
     province: Province.tarlac,
     video: greeting_9,
     map: map_9,

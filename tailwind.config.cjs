@@ -23,7 +23,7 @@ module.exports = {
         background: '#f3fcff',
         backgroundTransparent: '#ffffffca',
         contrastText: '#ffffff',
-        primaryText: '#7f7f7f',
+        primaryText: '#4f4f4f',
         secondaryText: '#9f9f9f',
       },
       screens: {

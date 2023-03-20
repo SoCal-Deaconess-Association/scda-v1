@@ -1,3 +1,4 @@
+import { BookIcon } from '@assets/icons/BookIcon';
 import { PlayIcon } from '@assets/icons/PlayIcon';
 import { Greeters } from '@assets/utils/greeters.utils';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
@@ -13,7 +14,7 @@ export const GreetingsPage = () => {
   const [currentGreeter, setCurrentGreeter] = useState<number | null>(null);
   const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
 
-  const buttonStyle = 'bg-secondary p-2 rounded-md text-contrastText';
+  const buttonStyle = 'bg-secondary py-2 px-4 rounded-md text-contrastText';
 
   useEffect(() => {
     if (currentGreeter !== null) {
@@ -47,14 +48,19 @@ export const GreetingsPage = () => {
   }, [currentGreeter]);
 
   return (
-    <div className="flex w-full h-full my-6 justify-center items-center overflow-hidden">
-      <div className="flex flex-col w-full h-full mx-6 p-4 bg-backgroundTransparent rounded-xl">
+    <div className="flex w-full h-full my-6 justify-center items-center overflow-hidden ">
+      <div
+        className={`flex flex-col ${
+          currentGreeter !== null ? 'w-5/6' : 'w-3/5'
+        } h-full mx-6 p-4 pb-8 bg-backgroundTransparent rounded-xl`}
+        style={{ transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)' }}
+      >
         {currentGreeter !== null ? (
-          <div className="flex flex-col items-center w-full h-1/6">
+          <div className="flex flex-col text-xl items-center px-10 w-full h-1/6">
             <div className="flex w-full">
-              <div className="w-1/6">
+              <div className="w-1/6m">
                 <button
-                  className="bg-primaryDark h-fit p-2 rounded-md text-contrastText"
+                  className="bg-primaryDark mr-4 h-fit py-2 px-4 rounded-md text-contrastText"
                   type="button"
                   onClick={() => {
                     setCurrentGreeter(null);
@@ -64,9 +70,11 @@ export const GreetingsPage = () => {
                   BACK TO GREETERS
                 </button>
               </div>
-              <div className="flex flex-col w-4/6 justify-center items-center font-bold text-xl text-primaryDark pb-2">
-                <span>{Greeters[currentGreeter]?.name}</span>
-                <span className="font-normal text-primary">
+              <div className="flex flex-col w-4/6 justify-center items-center font-bold  text-primaryDark pb-2">
+                <span className="text-2xl">
+                  {Greeters[currentGreeter]?.name}
+                </span>
+                <span className="font-normal text-primary ">
                   {currentGreeter + 1} / {Greeters.length}
                 </span>
               </div>
@@ -75,36 +83,40 @@ export const GreetingsPage = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center">
-            <div className="flex flex-col justify-center items-center font-bold text-xl text-primaryDark pb-2">
+            <div className="flex flex-col justify-center items-center font-bold text-2xl text-primaryDark pb-2">
               {PAGES[PageType.greetings].label}
             </div>
             <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
           </div>
         )}
-        <div className="flex flex-col w-full h-5/6 pl-4 pr-8 overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
+        <div className="flex flex-col w-full h-full pl-4 pr-8 text-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
           {currentGreeter !== null ? (
             /**
              * CURRENT GREETER VIEW
              */
 
-            <div className="w-full h-full align-middle justify-center">
+            <div className="w-full h-full flex flex-col items-center align-middle justify-center">
               <div className="flex w-full h-5/6 pb-6 items-center gap-20 justify-center">
                 {!videoBlob ? (
-                  <div>loading...</div>
+                  <div className="flex justify-center items-center text-secondaryText h-full w-2/3">
+                    loading greeter . . .
+                  </div>
                 ) : (
-                  /* eslint-disable-next-line jsx-a11y/media-has-caption */
-                  <video
-                    key={currentGreeter + 1}
-                    className="h-full rounded-lg"
-                    controls
-                  >
-                    <source
-                      src={window.URL.createObjectURL(videoBlob)}
-                      type="video/mp4"
-                    />
-                    Your current browser does not support the video tag. Try
-                    running on Google Chrome browser.
-                  </video>
+                  <div className="h-full w-2/3">
+                    {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                    <video
+                      key={currentGreeter + 1}
+                      className="h-full rounded-lg"
+                      controls
+                    >
+                      <source
+                        src={window.URL.createObjectURL(videoBlob)}
+                        type="video/mp4"
+                      />
+                      Your current browser does not support the video tag. Try
+                      running on Google Chrome browser.
+                    </video>
+                  </div>
                 )}
                 <img
                   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -113,7 +125,7 @@ export const GreetingsPage = () => {
                   alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                 />
               </div>
-              <div className="flex justify-between py-8">
+              <div className="flex w-1/5  gap-10 py-8">
                 <button
                   className={buttonStyle}
                   type="button"
@@ -127,10 +139,11 @@ export const GreetingsPage = () => {
                   PREVIOUS
                 </button>
                 <button
-                  className={buttonStyle}
+                  className="flex  gap-4 bg-secondaryDark py-2 px-4 rounded-md text-contrastText"
                   type="button"
                   onClick={() => console.log('view story')}
                 >
+                  <BookIcon width="28px" height="28px" fill="white" />
                   STORY
                 </button>
                 <button
@@ -151,16 +164,16 @@ export const GreetingsPage = () => {
             /**
              * TABLE OF GREETERS
              */
-            <table className="table-auto w-full h-full">
+            <table className="table-auto w-full text-xl text-center h-full">
               <thead className="text-secondaryText">
                 <tr>
                   <th className="py-5 px-3 text-left">NAME</th>
-                  <th className="text-left">GRADUATE YEAR</th>
-                  <th className="text-left">PROVINCE OF ORIGIN</th>
+                  <th className="">GRADUATE YEAR</th>
+                  <th className="">PROVINCE OF ORIGIN</th>
                   <th className="">VIEW STORY</th>
                 </tr>
               </thead>
-              <tbody className="text-primaryText">
+              <tbody className="text-primaryText text-xl">
                 {Greeters.map((g, index: number) => (
                   <tr
                     key={uuidv4()}
@@ -168,7 +181,7 @@ export const GreetingsPage = () => {
                       index % 2 ? 'bg-primaryRow' : 'bg-primaryRow2'
                     }`}
                   >
-                    <td className="p-3">{g.name}</td>
+                    <td className="p-3 text-left font-bold">{g.name}</td>
                     <td>{g.year}</td>
                     <td>{g.province}</td>
                     <td className="text-center">
@@ -177,8 +190,8 @@ export const GreetingsPage = () => {
                         type="button"
                       >
                         <PlayIcon
-                          width="24px"
-                          height="24px"
+                          width="32px"
+                          height="32px"
                           fill="#AF6677"
                           className="focus:outline-none hover:fill-secondary"
                         />
