@@ -2,8 +2,9 @@ import { INTERNAL_CONSOLE_STYLE } from '@assets/style/global.style';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
 import { displaySignature } from '@assets/utils/tmc.util';
 import { Nav } from '@components/nav';
+import { StoryPopup } from '@components/StoryPopup';
 import { GreetingsPage } from '@pages/Greetings.page';
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -46,6 +47,9 @@ const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => (
  * @author Tristan Chilvers
  */
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentGreeter, setCurrentGreeter] = useState<number | null>(null);
+
   /**
    * .....................................................
    * Conditions
@@ -77,7 +81,20 @@ const App = () => {
         <Route path="/*" element={<>history</>} />
         <Route
           path={PAGES[PageType.greetings].navigate}
-          element={<GreetingsPage />}
+          element={
+            <>
+              <StoryPopup
+                currentGreeter={currentGreeter}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+              />
+              <GreetingsPage
+                setIsOpen={setIsOpen}
+                currentGreeter={currentGreeter}
+                setCurrentGreeter={setCurrentGreeter}
+              />
+            </>
+          }
         />
         <Route path={PAGES[PageType.anthem].navigate} element={<>anthem</>} />
       </Routes>

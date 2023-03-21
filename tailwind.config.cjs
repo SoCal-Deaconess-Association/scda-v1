@@ -22,6 +22,7 @@ module.exports = {
         secondaryDark: '#AF6677',
         background: '#f3fcff',
         backgroundTransparent: '#ffffffca',
+        backgroundTransparent2: '#000000ca',
         contrastText: '#ffffff',
         primaryText: '#4f4f4f',
         secondaryText: '#9f9f9f',
