@@ -57,15 +57,17 @@ export const GreetingsPage = ({
   return (
     <div className="flex w-full h-full my-6 justify-center items-center overflow-hidden ">
       <div
-        className={`flex flex-col ${
-          currentGreeter !== null ? 'w-5/6' : 'w-1/2'
+        className={`flex flex-col w-full ${
+          currentGreeter !== null ? 'xl:w-5/6' : 'xl:w-1/2'
         } h-full mx-6 p-4 pb-8 bg-backgroundTransparent rounded-xl`}
         style={{ transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)' }}
       >
         {currentGreeter !== null ? (
           <div className="flex flex-col text-xl items-center px-10 w-full h-1/6">
             <div className="flex flex-col w-full justify-center items-center font-bold  text-primaryDark pb-2">
-              <span className="text-2xl">{Greeters[currentGreeter]?.name}</span>
+              <span className="text-lg xl:text-2xl">
+                {Greeters[currentGreeter]?.name}
+              </span>
               <span className="font-normal text-primary ">
                 {currentGreeter + 1} / {Greeters.length}
               </span>
@@ -75,26 +77,26 @@ export const GreetingsPage = ({
           </div>
         ) : (
           <div className="flex flex-col items-center">
-            <div className="flex flex-col justify-center items-center font-bold text-2xl text-primaryDark pb-2">
+            <div className="flex flex-col justify-center items-center font-bold text-lg xl:text-2xl text-primaryDark pb-2">
               {PAGES[PageType.greetings].label}
             </div>
             <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
           </div>
         )}
-        <div className="flex flex-col w-full h-full pl-4 pr-8 text-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
+        <div className="flex flex-col w-full h-full pl-4 pr-8 text-md xl:text-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
           {currentGreeter !== null ? (
             /**
              * CURRENT GREETER VIEW
              */
 
             <div className="w-full h-full flex flex-col items-center align-middle justify-center">
-              <div className="flex w-full h-full pb-6 items-center gap-20 justify-center">
-                <div className="h-full w-2/3 flex  flex-col justify-between">
+              <div className="flex flex-col 2xl:flex-row w-full h-full pb-6 items-center gap-20 2xl:justify-center">
+                <div className="h-full 2xl:w-2/3 flex  flex-col justify-between">
                   {!videoBlob ? (
                     <div className="flex justify-center items-center text-secondaryText h-full w-full">
                       <div
                         role="status"
-                        className="flex flex-col gap-4 justify-center items-center"
+                        className="flex flex-col py-28 2xl:py-0 gap-4 justify-center items-center"
                       >
                         <svg
                           aria-hidden="true"
@@ -159,11 +161,11 @@ export const GreetingsPage = ({
                         PREVIOUS
                       </button>
                       <button
-                        className="flex h-fit gap-4 bg-secondaryDark py-2 px-4 rounded-md text-contrastText"
+                        className="flex h-fit gap-4 bg-secondaryDark items-center py-2 px-4 rounded-md text-contrastText"
                         type="button"
                         onClick={() => setIsOpen(true)}
                       >
-                        <BookIcon width="28px" height="28px" fill="white" />
+                        <BookIcon width="24px" height="24px" fill="white" />
                         STORY
                       </button>
                       <button
@@ -193,7 +195,7 @@ export const GreetingsPage = ({
                   <img
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     src={Greeters[currentGreeter]?.map}
-                    className="h-full"
+                    className="px-16 2xl:px-0 h-full"
                     alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                   />
                 </div>
@@ -203,16 +205,16 @@ export const GreetingsPage = ({
             /**
              * TABLE OF GREETERS
              */
-            <table className="table-auto w-full text-xl text-center h-full">
+            <table className="table-auto w-full text-md xl:text-xl text-center h-full">
               <thead className="text-secondaryText">
                 <tr>
                   <th className="py-5 px-3">NAME</th>
-                  <th className="">YEAR GRADUATE</th>
-                  <th className="">PROVINCE OF ORIGIN</th>
-                  <th className="">VIEW GREETING & STORY</th>
+                  <th className="px-4">YEAR GRADUATE</th>
+                  <th className="px-4">PROVINCE OF ORIGIN</th>
+                  <th className="px-4">VIEW GREETING & STORY</th>
                 </tr>
               </thead>
-              <tbody className="text-primaryText text-xl">
+              <tbody className="text-primaryText text-md xl:text-xl">
                 {Greeters.map((g, index: number) => (
                   <tr
                     key={uuidv4()}

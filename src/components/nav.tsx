@@ -81,10 +81,10 @@ export const Nav = () => {
        */}
 
       <Menu>
-        <Menu.Button className="lg:hidden">
+        <Menu.Button className="xl:hidden">
           <MenuIcon color="white" />
         </Menu.Button>
-        <Menu.Items className="lg:hidden absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="xl:hidden absolute right-10 top-12 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
             <Menu.Item>
               {() => (
@@ -135,7 +135,7 @@ export const Nav = () => {
        */}
 
       <Tab.Group>
-        <Tab.List className="gap-6 hidden lg:flex">
+        <Tab.List className="gap-6 hidden xl:flex">
           <Tab as={Fragment}>
             {() => (
               <button

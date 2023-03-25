@@ -20,9 +20,9 @@ export const StoryPopup = ({
         isOpen ? 'visible' : 'hidden'
       } bg-backgroundTransparent2`}
     >
-      <div className="w-1/2 h-full py-10">
+      <div className="w-fit h-full p-20 2xl:w-1/2 2xl:h-full 2xl:px-0 2xl:py-10">
         <div className="bg-white rounded-lg px-5 w-full h-full flex flex-col items-center">
-          <div className="flex flex-col w-full p-5 text-2xl justify-center items-center font-bold  text-primaryDark pb-2">
+          <div className="flex flex-col w-full p-5 text-md 2xl:text-2xl justify-center items-center font-bold  text-primaryDark pb-2">
             <p>{`${Greeters[currentGreeter || 0]?.name || ''}'s Story`}</p>
           </div>
 
@@ -39,7 +39,7 @@ export const StoryPopup = ({
 
           <div className="flex w-full h-fit justify-between gap-10 p-5">
             <button
-              className="bg-primaryDark mr-4 h-fit py-2 px-4 rounded-md text-contrastText"
+              className="bg-primaryDark mr-4 h-fit px-2 2xl:px-4 py-2 rounded-md text-contrastText"
               type="button"
               onClick={() => {
                 setIsOpen(false);
@@ -51,7 +51,7 @@ export const StoryPopup = ({
             </button>
             <div className="flex gap-5">
               <button
-                className={`bg-secondary py-2 px-4 rounded-md text-contrastText ${
+                className={`bg-secondary py-2 px-2 2xl:px-4 rounded-md text-md 2xl:text-lg text-contrastText ${
                   currPage === 0 ? 'opacity-0' : ''
                 }`}
                 type="button"
@@ -61,10 +61,10 @@ export const StoryPopup = ({
                   document.getElementById('story-image')?.scrollTo(0, 0);
                 }}
               >
-                PREVIOUS PAGE
+                PREV
               </button>
               <button
-                className={`bg-secondary py-2 px-4 rounded-md text-contrastText ${
+                className={`bg-secondary py-2 px-2 2xl:px-4 rounded-md md text-md 2xl:text-lg text-contrastText ${
                   // eslint-disable-next-line no-unsafe-optional-chaining, @typescript-eslint/no-unsafe-member-access
                   currPage === Greeters[currentGreeter || 0]?.stories.length - 1
                     ? 'opacity-0'
@@ -85,7 +85,7 @@ export const StoryPopup = ({
                   document.getElementById('story-image')?.scrollTo(0, 0);
                 }}
               >
-                NEXT PAGE
+                NEXT
               </button>
             </div>
           </div>
