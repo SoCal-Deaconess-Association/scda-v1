@@ -59,12 +59,12 @@ export const GreetingsPage = ({
       <div
         className={`flex flex-col w-full ${
           currentGreeter !== null ? 'xl:w-5/6' : 'xl:w-1/2'
-        } h-full mx-6 p-4 pb-8 bg-backgroundTransparent rounded-xl`}
+        } h-full px-2 md:mx-6 md:p-4 md:pb-8 bg-backgroundTransparent rounded-xl`}
         style={{ transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)' }}
       >
         {currentGreeter !== null ? (
-          <div className="flex flex-col text-xl items-center px-10 w-full h-1/6">
-            <div className="flex flex-col w-full justify-center items-center font-bold  text-primaryDark pb-2">
+          <div className="flex flex-col text-xl items-center md:px-10 w-full h-1/6">
+            <div className="flex flex-col w-full justify-center items-center font-bold text-primaryDark pb-2">
               <span className="text-lg xl:text-2xl">
                 {Greeters[currentGreeter]?.name}
               </span>
@@ -77,30 +77,40 @@ export const GreetingsPage = ({
           </div>
         ) : (
           <div className="flex flex-col items-center">
-            <div className="flex flex-col justify-center items-center font-bold text-lg xl:text-2xl text-primaryDark pb-2">
+            <div className="flex flex-col justify-center items-center font-bold text-lg md:text-lg xl:text-2xl text-primaryDark py-1 md:pb-2">
               {PAGES[PageType.greetings].label}
             </div>
             <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
           </div>
         )}
-        <div className="flex flex-col w-full h-full pl-4 pr-8 text-md xl:text-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
+        <div className="flex flex-col w-full h-full pl-2 pr-4 mb-5 md:pl-4 md:pr-8 text-md xl:text-xl overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none ">
           {currentGreeter !== null ? (
             /**
              * CURRENT GREETER VIEW
              */
 
             <div className="w-full h-full flex flex-col items-center align-middle justify-center">
-              <div className="flex flex-col 2xl:flex-row w-full h-full pb-6 items-center gap-20 2xl:justify-center">
-                <div className="h-full 2xl:w-2/3 flex  flex-col justify-between">
+              <div className="flex flex-col 2xl:flex-row w-full h-full pb-6 items-center md:gap-20 2xl:justify-center">
+                <div className="h-full w-full 2xl:w-2/3 flex flex-col justify-between">
+                  <button
+                    className="md:hidden bg-primaryDark mb-4 px-2 py-1 w-fit md:mr-4 h-fit md:w-fit md:py-2 md:px-4 rounded-md text-contrastText"
+                    type="button"
+                    onClick={() => {
+                      setCurrentGreeter(null);
+                      setVideoBlob(null);
+                    }}
+                  >
+                    BACK TO GREETERS
+                  </button>
                   {!videoBlob ? (
                     <div className="flex justify-center items-center text-secondaryText h-full w-full">
                       <div
                         role="status"
-                        className="flex flex-col py-28 2xl:py-0 gap-4 justify-center items-center"
+                        className="flex flex-col py-8 w-full md:py-28 2xl:py-0 gap-2 md:gap-4 justify-center items-center"
                       >
                         <svg
                           aria-hidden="true"
-                          className="w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-200 fill-green-600"
+                          className="w-20 h-20 text-gray-200 animate-spin dark:text-gray-200 fill-green-600"
                           viewBox="0 0 100 101"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -133,9 +143,9 @@ export const GreetingsPage = ({
                     </video>
                   )}
 
-                  <div className="flex w-full h-fit justify-between gap-10 ">
+                  <div className="flex w-full h-fit pt-4 text-sm md:text-lg justify-between md:gap-10 ">
                     <button
-                      className="bg-primaryDark mr-4 h-fit py-2 px-4 rounded-md text-contrastText"
+                      className="invisible w-0 md:visible bg-primaryDark md:mr-4 h-fit md:w-fit md:py-2 md:px-4 rounded-md text-contrastText"
                       type="button"
                       onClick={() => {
                         setCurrentGreeter(null);
@@ -144,9 +154,9 @@ export const GreetingsPage = ({
                     >
                       BACK TO GREETERS
                     </button>
-                    <div className="flex gap-5">
+                    <div className="flex justify-between w-full md:w-fit md:gap-5">
                       <button
-                        className={`h-fit bg-secondary py-2 px-4 rounded-md text-contrastText ${
+                        className={`h-fit bg-secondary  py-1 px-2 md:py-2 md:px-4 rounded-md text-contrastText ${
                           currentGreeter === 0 ? 'opacity-0' : ''
                         }`}
                         disabled={currentGreeter === 0}
@@ -161,15 +171,15 @@ export const GreetingsPage = ({
                         PREVIOUS
                       </button>
                       <button
-                        className="flex h-fit gap-4 bg-secondaryDark items-center py-2 px-4 rounded-md text-contrastText"
+                        className="flex h-fit gap-4 bg-secondaryDark items-center py-1 px-2 md:py-2 md:px-4 rounded-md text-contrastText"
                         type="button"
                         onClick={() => setIsOpen(true)}
                       >
-                        <BookIcon width="24px" height="24px" fill="white" />
+                        <BookIcon width="22px" height="22px" fill="white" />
                         STORY
                       </button>
                       <button
-                        className={`h-fit bg-secondary py-2 px-4 rounded-md text-contrastText ${
+                        className={`h-fit bg-secondary py-1 px-2 md:py-2 md:px-4 rounded-md text-contrastText ${
                           currentGreeter === Greeters.length - 1
                             ? 'opacity-0'
                             : ''
@@ -189,7 +199,7 @@ export const GreetingsPage = ({
                 </div>
 
                 <div className="flex flex-col h-full justify-center items-center">
-                  <span className="pb-2 text-xl text-primaryText">
+                  <span className="pb-2 text-md md:text-xl text-primaryText">
                     Deaconess Concentration of Work
                   </span>
                   <img
@@ -205,16 +215,16 @@ export const GreetingsPage = ({
             /**
              * TABLE OF GREETERS
              */
-            <table className="table-auto w-full text-md xl:text-xl text-center h-full">
+            <table className="table-auto w-full text-sm md:text-md xl:text-xl text-center h-full">
               <thead className="text-secondaryText">
                 <tr>
-                  <th className="py-5 px-3">NAME</th>
-                  <th className="px-4">YEAR GRADUATE</th>
-                  <th className="px-4">PROVINCE OF ORIGIN</th>
-                  <th className="px-4">VIEW GREETING & STORY</th>
+                  <th className="pb-4 px-1 md:py-5 md:px-3">NAME</th>
+                  <th className="pb-4 px-1 md:px-4">YEAR GRADUATE</th>
+                  <th className="pb-4 px-1 md:px-4">PROVINCE OF ORIGIN</th>
+                  <th className="pb-4 px-1 md:px-4">VIEW GREETING & STORY</th>
                 </tr>
               </thead>
-              <tbody className="text-primaryText text-md xl:text-xl">
+              <tbody className="text-primaryText text-sm md:text-md xl:text-xl">
                 {Greeters.map((g, index: number) => (
                   <tr
                     key={uuidv4()}
@@ -222,7 +232,7 @@ export const GreetingsPage = ({
                       index % 2 ? 'bg-primaryRow' : 'bg-primaryRow2'
                     }`}
                   >
-                    <td className="p-3 font-bold">{g.name}</td>
+                    <td className="py-4 pl-1 md:p-3 font-bold">{g.name}</td>
                     <td>{g.year}</td>
                     <td>{g.province}</td>
                     <td className="text-center">

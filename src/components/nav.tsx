@@ -72,7 +72,7 @@ export const Nav = () => {
   const location = useLocation();
 
   return (
-    <div className="bg-primaryDark flex w-full px-10 py-2 shadow-md shadow-primary justify-between items-center">
+    <div className="bg-primaryDark flex w-full px-5 md:px-10 py-2 shadow-md shadow-primary justify-between items-center">
       <LogoIcon />
 
       {/**

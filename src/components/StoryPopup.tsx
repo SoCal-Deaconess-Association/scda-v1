@@ -20,8 +20,8 @@ export const StoryPopup = ({
         isOpen ? 'visible' : 'hidden'
       } bg-backgroundTransparent2`}
     >
-      <div className="w-fit h-full p-20 2xl:w-1/2 2xl:h-full 2xl:px-0 2xl:py-10">
-        <div className="bg-white rounded-lg px-5 w-full h-full flex flex-col items-center">
+      <div className="w-fit h-full md:p-20 2xl:w-1/2 2xl:h-full 2xl:px-0 2xl:py-10">
+        <div className="bg-white rounded-lg md:px-5 w-full h-full flex flex-col items-center">
           <div className="flex flex-col w-full p-5 text-md 2xl:text-2xl justify-center items-center font-bold  text-primaryDark pb-2">
             <p>{`${Greeters[currentGreeter || 0]?.name || ''}'s Story`}</p>
           </div>
