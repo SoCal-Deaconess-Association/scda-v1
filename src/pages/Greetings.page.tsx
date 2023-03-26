@@ -205,7 +205,7 @@ export const GreetingsPage = ({
                   <img
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     src={Greeters[currentGreeter]?.map}
-                    className="px-16 2xl:px-0 h-full"
+                    className="px-16 2xl:px-0 w-fit md:h-full"
                     alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                   />
                 </div>
