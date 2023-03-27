@@ -52,7 +52,9 @@ export const StoryPopup = ({
             <div className="flex gap-5">
               <button
                 className={`bg-secondary py-2 px-2 2xl:px-4 rounded-md text-md 2xl:text-lg text-contrastText ${
-                  currPage === 0 ? 'opacity-0' : ''
+                  currPage === 0
+                    ? 'bg-disabledButton text-disabledText'
+                    : 'bg-secondary'
                 }`}
                 type="button"
                 disabled={currPage === 0}
@@ -67,8 +69,8 @@ export const StoryPopup = ({
                 className={`bg-secondary py-2 px-2 2xl:px-4 rounded-md md text-md 2xl:text-lg text-contrastText ${
                   // eslint-disable-next-line no-unsafe-optional-chaining, @typescript-eslint/no-unsafe-member-access
                   currPage === Greeters[currentGreeter || 0]?.stories.length - 1
-                    ? 'opacity-0'
-                    : ''
+                    ? 'bg-disabledButton text-disabledText'
+                    : 'bg-secondary'
                 }`}
                 type="button"
                 disabled={

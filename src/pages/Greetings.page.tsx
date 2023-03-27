@@ -156,8 +156,10 @@ export const GreetingsPage = ({
                     </button>
                     <div className="flex justify-between w-full md:w-fit md:gap-5">
                       <button
-                        className={`h-fit bg-secondary  py-1 px-2 md:py-2 md:px-4 rounded-md text-contrastText ${
-                          currentGreeter === 0 ? 'opacity-0' : ''
+                        className={`h-fit py-1 px-2 md:py-2 md:px-4 rounded-md text-contrastText ${
+                          currentGreeter === 0
+                            ? 'bg-disabledButton text-disabledText'
+                            : 'bg-secondary'
                         }`}
                         disabled={currentGreeter === 0}
                         type="button"
@@ -181,8 +183,8 @@ export const GreetingsPage = ({
                       <button
                         className={`h-fit bg-secondary py-1 px-2 md:py-2 md:px-4 rounded-md text-contrastText ${
                           currentGreeter === Greeters.length - 1
-                            ? 'opacity-0'
-                            : ''
+                            ? 'bg-disabledButton text-disabledText'
+                            : 'bg-secondary'
                         }`}
                         type="button"
                         onClick={() => {
@@ -232,7 +234,9 @@ export const GreetingsPage = ({
                       index % 2 ? 'bg-primaryRow' : 'bg-primaryRow2'
                     }`}
                   >
-                    <td className="py-4 pl-1 md:p-3 font-bold">{g.name}</td>
+                    <td className="py-4 pl-1 md:p-3 text-left font-bold">
+                      {g.name}
+                    </td>
                     <td>{g.year}</td>
                     <td>{g.province}</td>
                     <td className="text-center">

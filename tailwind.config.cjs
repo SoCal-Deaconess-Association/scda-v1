@@ -26,6 +26,8 @@ module.exports = {
         contrastText: '#ffffff',
         primaryText: '#4f4f4f',
         secondaryText: '#9f9f9f',
+        disabledButton: '#d9d9d9',
+        disabledText: '#b0b0b0',
       },
       screens: {
         tablet: '1024px',
