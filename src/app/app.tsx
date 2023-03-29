@@ -4,6 +4,7 @@ import { displaySignature } from '@assets/utils/tmc.util';
 import { Nav } from '@components/nav';
 import { StoryPopup } from '@components/StoryPopup';
 import { GreetingsPage } from '@pages/Greetings.page';
+import { HistoryPage } from '@pages/History.page';
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
@@ -78,7 +79,7 @@ const App = () => {
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <Nav />
       <Routes>
-        <Route path="/*" element={<>history</>} />
+        <Route path="/*" element={<HistoryPage />} />
         <Route
           path={PAGES[PageType.greetings].navigate}
           element={
