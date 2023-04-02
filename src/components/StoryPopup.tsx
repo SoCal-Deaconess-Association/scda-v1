@@ -31,6 +31,7 @@ export const StoryPopup = ({
             className="py-10 overflow-y-scroll scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none"
           >
             <img
+              style={{ marginTop: '-9%' }}
               alt="Description of Story"
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
               src={Greeters[currentGreeter || 0]?.stories[currPage]}
@@ -51,7 +52,7 @@ export const StoryPopup = ({
             </button>
             <div className="flex gap-5">
               <button
-                className={`bg-secondary py-2 px-2 2xl:px-4 rounded-md text-md 2xl:text-lg text-contrastText ${
+                className={` py-2 px-2 2xl:px-4 rounded-md text-md 2xl:text-lg text-contrastText ${
                   currPage === 0
                     ? 'bg-disabledButton text-disabledText'
                     : 'bg-secondary'
@@ -66,7 +67,7 @@ export const StoryPopup = ({
                 PREV
               </button>
               <button
-                className={`bg-secondary py-2 px-2 2xl:px-4 rounded-md md text-md 2xl:text-lg text-contrastText ${
+                className={` py-2 px-2 2xl:px-4 rounded-md md text-md 2xl:text-lg text-contrastText ${
                   // eslint-disable-next-line no-unsafe-optional-chaining, @typescript-eslint/no-unsafe-member-access
                   currPage === Greeters[currentGreeter || 0]?.stories.length - 1
                     ? 'bg-disabledButton text-disabledText'

@@ -3,6 +3,7 @@ import { PAGES, PageType } from '@assets/utils/pages.utils';
 import { displaySignature } from '@assets/utils/tmc.util';
 import { Nav } from '@components/nav';
 import { StoryPopup } from '@components/StoryPopup';
+import { AnthemPage } from '@pages/Anthem.page';
 import { GreetingsPage } from '@pages/Greetings.page';
 import { HistoryPage } from '@pages/History.page';
 import React, { useState } from 'react';
@@ -97,7 +98,10 @@ const App = () => {
             </>
           }
         />
-        <Route path={PAGES[PageType.anthem].navigate} element={<>anthem</>} />
+        <Route
+          path={PAGES[PageType.anthem].navigate}
+          element={<AnthemPage />}
+        />
       </Routes>
     </ErrorBoundary>
   );
