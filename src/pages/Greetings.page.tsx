@@ -89,8 +89,8 @@ export const GreetingsPage = ({
              * CURRENT GREETER VIEW
              */
 
-            <div className="flex flex-col 2xl:flex-row w-full h-full gap-20 items-center 2xl:justify-center">
-              <div className="flex flex-col 2xl:w-2/3 h-full justify-between 2xl:justify-center">
+            <div className="flex flex-col xl:flex-row w-full h-full md:gap-32 xl:gap-12 2xl:gap-20 items-center xl:justify-center">
+              <div className="flex flex-col xl:w-3/4 2xl:w-3/5 h-full justify-between xl:justify-center">
                 <button
                   className="md:hidden bg-primaryDark mb-4 px-2 py-1 w-fit md:mr-4 h-fit md:w-fit md:py-2 md:px-4 rounded-md text-contrastText"
                   type="button"
@@ -202,10 +202,10 @@ export const GreetingsPage = ({
                 </div>
               </div>
 
-              <div className="flex flex-col 2xl:w-1/3 h-full items-center gap-2">
+              <div className="flex flex-col xl:w-1/3 2xl:w-1/3 h-full items-center justify-center gap-2">
                 <span
-                  className="flex text-md md:text-xl text-primaryText items-center"
-                  style={{ height: '10%' }}
+                  className="flex text-md md:text-xl xl:text-lg 2xl:text-xl text-primaryText items-center"
+                  style={{ height: '4%' }}
                 >
                   Deaconess Concentration of Work
                 </span>
@@ -213,7 +213,7 @@ export const GreetingsPage = ({
                   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   src={Greeters[currentGreeter]?.map}
                   className="flex"
-                  style={{ maxWidth: '100%', maxHeight: '90%' }}
+                  style={{ maxWidth: '100%', maxHeight: '94%' }}
                   alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                 />
               </div>
