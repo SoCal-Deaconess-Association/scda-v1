@@ -57,7 +57,7 @@ export const HistoryPage = () => {
           <div className="border-solid border-t-2 border-gray-200 w-5/6 pb-4" />
         </div>
         {!videoBlob ? (
-          <div className="flex justify-center items-center text-primaryText h-3/5 w-full">
+          <div className="flex justify-center items-center text-primaryText h-4/5 w-full">
             <div
               role="status"
               className="flex flex-col py-8 w-full md:py-28 2xl:py-0 gap-2 md:gap-4 justify-center items-center"
@@ -82,7 +82,7 @@ export const HistoryPage = () => {
             </div>
           </div>
         ) : (
-          <div className="flex justify-center items-center h-3/5 w-full">
+          <div className="flex justify-center items-center h-4/5 w-full">
             {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
             <video
               key="history-video"
@@ -98,7 +98,7 @@ export const HistoryPage = () => {
             </video>
           </div>
         )}
-        <div className="flex h-1/5 w-full p-10 justify-center">
+        <div className="flex h-1/5 w-full justify-center">
           <button
             className="h-fit bg-secondary py-1 px-2 md:py-2 text-lg md:px-4 rounded-md text-contrastText"
             type="button"
