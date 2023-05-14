@@ -92,7 +92,7 @@ export const Nav = () => {
                   type="button"
                   className={`${menuStyle(
                     location.pathname === PAGES[PageType.history].navigate,
-                  )} w-40`}
+                  )} w-40`} 
                   onClick={() => navigate(PAGES[PageType.history].navigate)}
                 >
                   HISTORY

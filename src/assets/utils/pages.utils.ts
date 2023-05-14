@@ -24,14 +24,14 @@ export type PageContent = {
 export const PAGES: { [key in PageType]: PageContent } = {
   [PageType.history]: {
     label: 'HISTORY',
-    navigate: '/scda-story/history',
+    navigate: '/history',
   },
   [PageType.greetings]: {
     label: 'GREETINGS & STORIES',
-    navigate: '/scda-story/greetings',
+    navigate: '/greetings',
   },
   [PageType.anthem]: {
     label: 'ANTHEM',
-    navigate: '/scda-story/anthem',
+    navigate: '/anthem',
   },
 };

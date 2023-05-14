@@ -89,8 +89,14 @@ export const GreetingsPage = ({
              * CURRENT GREETER VIEW
              */
 
-            <div className="flex flex-col xl:flex-row w-full h-full md:gap-32 xl:gap-12 2xl:gap-20 items-center xl:justify-center">
-              <div className="flex flex-col xl:w-3/4 2xl:w-3/5 h-full justify-between xl:justify-center">
+            <div className="flex flex-col xl:flex-row w-full h-full md:gap-32 xl:gap-12 2xl:gap-5 items-center xl:justify-center">
+              {/**
+               * Video
+               */}
+              <div
+                className="flex flex-col max-h-full justify-between xl:justify-center"
+                style={{ width: '66%' }}
+              >
                 <button
                   className="md:hidden bg-primaryDark mb-4 px-2 py-1 w-fit md:mr-4 h-fit md:w-fit md:py-2 md:px-4 rounded-md text-contrastText"
                   type="button"
@@ -127,7 +133,7 @@ export const GreetingsPage = ({
                     </div>
                   </div>
                 ) : (
-                  <div>
+                  <div className="max-w-full">
                     {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
                     <video
                       key={currentGreeter + 1}
@@ -202,18 +208,21 @@ export const GreetingsPage = ({
                 </div>
               </div>
 
-              <div className="flex flex-col xl:w-1/3 2xl:w-1/3 h-full items-center justify-center gap-2">
-                <span
-                  className="flex text-md md:text-xl xl:text-lg 2xl:text-xl text-primaryText items-center"
-                  style={{ height: '4%' }}
-                >
+              {/**
+               * Map
+               */}
+              <div
+                className="flex flex-col h-full items-center justify-center gap-2 overflow-hidden"
+                style={{ width: '33%' }}
+              >
+                <span className="flex text-md md:text-xl xl:text-lg 2xl:text-xl text-primaryText items-center ">
                   Deaconess Concentration of Work
                 </span>
                 <img
                   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   src={Greeters[currentGreeter]?.map}
-                  className="flex"
-                  style={{ maxWidth: '100%', maxHeight: '94%' }}
+                  className="w-fit"
+                  style={{ maxHeight: '95%' }}
                   alt="Map of the Philippines with a red circle dictating where the Greeter is from."
                 />
               </div>
@@ -222,7 +231,7 @@ export const GreetingsPage = ({
             /**
              * TABLE OF GREETERS
              */
-            <table className="table-auto w-full text-sm md:text-md xl:text-xl text-center h-full">
+            <table className="table-auto w-full h-full text-sm md:text-md xl:text-xl text-center">
               <thead className="text-secondaryText">
                 <tr>
                   <th className="pb-4 px-1 md:py-5 md:px-3">NAME</th>

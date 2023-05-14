@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
   plugins: [react()],
-  base: '/scda-story/',
+  base: '/',
   resolve: {
     alias: {
       '@api': '/src/api',
