@@ -1,10 +1,46 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
+
+const pwaOptions: Partial<VitePWAOptions> = {
+  mode: 'development',
+  base: '/',
+  includeAssets: ['favicon.svg'],
+  manifest: {
+    name: 'SoCal Deaconess Association & Friends',
+    short_name: 'SCDA App',
+    theme_color: '#c6e5ec',
+    icons: [
+      {
+        src: 'scda-logo-small.png', // <== don't add slash, for testing
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: '/scda-logo.png', // <== don't remove slash, for testing
+        sizes: '512x512',
+        type: 'image/png',
+      },
+      {
+        src: 'scda-logo.png', // <== don't add slash, for testing
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'any maskable',
+      },
+    ],
+  },
+  devOptions: {
+    enabled: process.env.SW_DEV === 'true',
+    /* when using generateSW the PWA plugin will switch to classic */
+    type: 'module',
+    navigateFallback: 'index.html',
+  },
+};
 
 // https://vitejs.dev/config/
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), VitePWA(pwaOptions)],
   base: '/',
   resolve: {
     alias: {
