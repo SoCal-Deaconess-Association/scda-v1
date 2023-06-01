@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 
 const pwaOptions: Partial<VitePWAOptions> = {
-  mode: 'development',
   base: '/',
   includeAssets: ['favicon.svg'],
   manifest: {
@@ -28,12 +27,6 @@ const pwaOptions: Partial<VitePWAOptions> = {
         purpose: 'any maskable',
       },
     ],
-  },
-  devOptions: {
-    enabled: process.env.SW_DEV === 'true',
-    /* when using generateSW the PWA plugin will switch to classic */
-    type: 'module',
-    navigateFallback: 'index.html',
   },
 };
 
