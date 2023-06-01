@@ -26,10 +26,7 @@ export const Greeter = ({
     {/**
      * Video
      */}
-    <div
-      className="flex flex-col max-h-full justify-between xl:justify-center"
-      style={{ width: '66%' }}
-    >
+    <div className="flex flex-col max-h-full justify-between xl:justify-center w-5/6 sm:w-2/3">
       <button
         className="md:hidden bg-primaryDark mb-4 px-2 py-1 w-fit md:mr-4 h-fit md:w-fit md:py-2 md:px-4 rounded-md text-contrastText"
         type="button"
