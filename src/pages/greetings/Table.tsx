@@ -68,7 +68,7 @@ export const Table = ({ setCurrentGreeter }: TableProps) => {
 
       {/* Buttons */}
 
-      <div className="flex md:h-1/6 w-full md:px-20 py-10 justify-between">
+      <div className="flex md:h-1/6 w-full px-20 py-10 justify-between">
         <button
           style={{
             transition:
