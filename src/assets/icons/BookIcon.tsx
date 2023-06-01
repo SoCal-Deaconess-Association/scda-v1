@@ -2,6 +2,7 @@ type BookIconProps = {
   width?: string;
   height?: string;
   fill?: string;
+  className?: string;
 };
 
 export const BookIcon = (props: BookIconProps) => (

@@ -3,6 +3,7 @@ type MenuIconProps = {
   height?: string;
   fill?: string;
   className?: string;
+  style?: React.CSSProperties;
 };
 
 export const PlayIcon = (props: MenuIconProps) => (

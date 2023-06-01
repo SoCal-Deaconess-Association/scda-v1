@@ -23,15 +23,15 @@ export type PageContent = {
  */
 export const PAGES: { [key in PageType]: PageContent } = {
   [PageType.history]: {
-    label: 'HISTORY',
+    label: 'PART I - HISTORY',
     navigate: '/history',
   },
   [PageType.greetings]: {
-    label: 'GREETINGS & STORIES',
+    label: 'PART II - GREETINGS & STORIES',
     navigate: '/greetings',
   },
   [PageType.anthem]: {
-    label: 'ANTHEM',
+    label: 'PART III - ANTHEM',
     navigate: '/anthem',
   },
 };

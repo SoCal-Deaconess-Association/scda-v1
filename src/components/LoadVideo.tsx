@@ -3,7 +3,7 @@
  * being Unzipped.
  */
 export const LoadVideo = () => (
-  <div className="flex justify-center items-center text-primaryText h-4/6 w-full">
+  <div className="flex justify-center items-center text-primaryText h-full w-full">
     <div
       role="status"
       className="flex flex-col py-8 w-full md:py-28 2xl:py-0 gap-2 md:gap-4 justify-center items-center"

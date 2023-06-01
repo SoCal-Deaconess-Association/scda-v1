@@ -145,6 +145,10 @@ export const Nav = () => {
             {() => (
               <button
                 type="button"
+                style={{
+                  transition:
+                    'outline 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border 0.1s cubic-bezier(0.4, 0, 0.2, 1), font 0.1s cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
                 className={`${tabStyle(
                   location.pathname === PAGES[PageType.history].navigate,
                 )} w-48 flex items-center`}
@@ -159,6 +163,10 @@ export const Nav = () => {
             {() => (
               <button
                 type="button"
+                style={{
+                  transition:
+                    'outline 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border 0.1s cubic-bezier(0.4, 0, 0.2, 1), font 0.1s cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
                 className={`${tabStyle(
                   location.pathname === PAGES[PageType.greetings].navigate,
                 )} w-80`}
@@ -173,6 +181,10 @@ export const Nav = () => {
             {() => (
               <button
                 type="button"
+                style={{
+                  transition:
+                    'outline 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), border 0.1s cubic-bezier(0.4, 0, 0.2, 1), font 0.1s cubic-bezier(0.4, 0, 0.2, 1)',
+                }}
                 className={`${tabStyle(
                   location.pathname === PAGES[PageType.anthem].navigate,
                 )} w-48`}
