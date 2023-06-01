@@ -1,20 +1,19 @@
 import { INTERNAL_CONSOLE_STYLE } from '@assets/style/global.style';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
 import { displaySignature } from '@assets/utils/tmc.util';
-import { Nav } from '@components/nav';
-import { StoryPopup } from '@components/StoryPopup';
-import { AnthemPage } from '@pages/Anthem.page';
-import { GreetingsPage } from '@pages/Greetings.page';
-import { HistoryPage } from '@pages/History.page';
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './app.css';
+import { StoryPopup } from '@pages/greetings/StoryPopup';
+import { Nav } from '@components/Nav';
+import { AnthemPage } from '@pages/anthem/Anthem.page';
+import { GreetingsPage } from '@pages/greetings/Greetings.page';
+import { HistoryPage } from '@pages/history/History.page';
+import { useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Route, Routes } from 'react-router-dom';
+import { ErrorFallback } from './ErrorFallback';
 
 /**
- * —————————————————————————————————————————————————————
- *                      CONSTANTS
+ * .....................................................
+ * Constants
  */
 
 /**
@@ -23,32 +22,14 @@ import './app.css';
 const DEV_TOOLS = import.meta.env.VITE_DEV_TOOLS;
 
 /**
- * —————————————————————————————————————————————————————
- *                        MAIN
- */
-
-/**
- * Fallback component if App fails to render.
- *
- * @param see {@link FallbackProps}
- * @returns A component that displays the error message.
- */
-const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => (
-  <div role="alert">
-    <p>Something went wrong:</p>
-    <pre>{error.message}</pre>
-    <button type="button" onClick={resetErrorBoundary}>
-      Try again
-    </button>
-  </div>
-);
-
-/**
  * Entry point of the application.
- *
- * @author Tristan Chilvers
  */
-const App = () => {
+export const App = () => {
+  /**
+   * .....................................................
+   * Local State Hooks
+   */
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentGreeter, setCurrentGreeter] = useState<number | null>(null);
 
@@ -106,14 +87,3 @@ const App = () => {
     </ErrorBoundary>
   );
 };
-
-/**
- * Connect index.html to the react application.
- */
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-);

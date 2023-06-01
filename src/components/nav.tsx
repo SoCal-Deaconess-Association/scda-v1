@@ -9,8 +9,8 @@ import { Fragment } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 /**
- * —————————————————————————————————————————————————————
- *                       CONSTANTS
+ * .....................................................
+ * CONSTANTS
  */
 
 /**
@@ -58,18 +58,23 @@ ${active ? 'bg-primarySelect text-contrastText font-bold' : ''}
 `;
 
 /**
- * —————————————————————————————————————————————————————
- *                          MAIN
- */
-
-/**
  * Displays the nav bar on the top of the screen.
  *
  * - For small devices, it turns the tabs into a hamburger dropdown.
  */
 export const Nav = () => {
+  /**
+   * .....................................................
+   * Misc Hooks
+   */
+
   const navigate = useNavigate();
   const location = useLocation();
+
+  /**
+   * .....................................................
+   * Render
+   */
 
   return (
     <div className="bg-primaryDark flex w-full px-5 md:px-10 py-2 shadow-md shadow-primary justify-between items-center">
@@ -92,7 +97,7 @@ export const Nav = () => {
                   type="button"
                   className={`${menuStyle(
                     location.pathname === PAGES[PageType.history].navigate,
-                  )} w-40`} 
+                  )} w-40`}
                   onClick={() => navigate(PAGES[PageType.history].navigate)}
                 >
                   HISTORY
