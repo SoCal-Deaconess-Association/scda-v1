@@ -22,7 +22,7 @@ export const Greeter = ({
   setIsOpen,
   setVideoBlob,
 }: GreeterProps) => (
-  <div className="flex flex-col xl:flex-row w-full h-full md:gap-32 xl:gap-12 2xl:gap-5 items-center xl:justify-center">
+<div className="flex flex-col xl:flex-row w-full h-full md:gap-16 xl:gap-12 2xl:gap-5 items-center xl:justify-center overflow-x-hidden overflow-y-auto lg:overflow-y-hidden scrollbar-thin scrollbar-thumb-secondaryDark scrollbar-track-none">
     {/**
      * Video
      */}
@@ -161,7 +161,7 @@ export const Greeter = ({
      * Map
      */}
     <div
-      className="flex flex-col h-full items-center justify-center gap-2 overflow-hidden"
+      className=" flex-col h-full items-center justify-center gap-2 hidden md:flex "
       style={{ width: '33%' }}
     >
       <span className="flex text-md md:text-xl xl:text-lg 2xl:text-xl text-primaryText items-center ">

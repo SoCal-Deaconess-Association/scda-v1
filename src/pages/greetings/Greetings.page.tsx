@@ -81,10 +81,13 @@ export const GreetingsPage = ({
     <div className="flex w-full h-full py-6 justify-center items-center overflow-hidden ">
       <div
         className={`flex flex-col w-full ${
-          currentGreeter !== null ? 'xl:w-5/6' : 'xl:w-1/2'
-        } h-full px-2 md:mx-6 md:p-4 md:pb-8 bg-backgroundTransparent rounded-xl`}
+          currentGreeter !== null
+            ? 'xl:w-5/6 h-4/6 md:h-5/6 lg:h-full'
+            : 'xl:w-1/2 h-full'
+        } h-4/6 md:h-5/6 lg:h-full px-2 md:mx-6 md:p-4 md:pb-8 bg-backgroundTransparent rounded-xl`}
         style={{
-          transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition:
+            'width 1s cubic-bezier(0.4, 0, 0.2, 1), height 1s cubic-bezier(0.4, 0, 0.2, 1)',
           boxShadow: '0px 0px 4px 4px #08472f18 ',
         }}
       >

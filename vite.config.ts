@@ -9,7 +9,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
   manifest: {
     name: 'SoCal Deaconess Association & Friends',
     short_name: 'SCDA App',
-    theme_color: '#c6e5ec',
+    theme_color: '#4c867c',
     icons: [
       {
         src: 'scda-logo-small.png', // <== don't add slash, for testing
