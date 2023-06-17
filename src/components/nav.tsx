@@ -100,7 +100,7 @@ export const Nav = () => {
                   )} w-40`}
                   onClick={() => navigate(PAGES[PageType.history].navigate)}
                 >
-                  HISTORY
+                  {PAGES[PageType.history].label}
                 </button>
               )}
             </Menu.Item>
@@ -113,7 +113,7 @@ export const Nav = () => {
                   )} w-40`}
                   onClick={() => navigate(PAGES[PageType.greetings].navigate)}
                 >
-                  GREETINGS & STORIES
+                  {PAGES[PageType.greetings].label}
                 </button>
               )}
             </Menu.Item>
@@ -126,7 +126,7 @@ export const Nav = () => {
                   )} w-40`}
                   onClick={() => navigate(PAGES[PageType.anthem].navigate)}
                 >
-                  ANTHEM
+                  {PAGES[PageType.anthem].label}
                 </button>
               )}
             </Menu.Item>
