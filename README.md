@@ -4,4 +4,4 @@
 
 ### v. Online w/ HLS Streaming
 
-This is a version of the SCDA website which uses HLS streaming to play videos located on the server.
+This is a version of the SCDA website which streams videos from the server using HLS.
