@@ -351,3 +351,9 @@ MigrationBackup/
 
 public/images
 dist
+
+.eslintcache
+.eslintignore
+.prettierignore
+.prettierrc
+.timetracker

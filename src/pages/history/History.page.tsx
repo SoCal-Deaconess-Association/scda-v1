@@ -1,15 +1,10 @@
-// eslint-disable-next-line
-// @ts-expect-error types do not exist
-import historyVideo from '@assets/videos/history.zip';
-// eslint-disable-next-line
-// @ts-expect-error declaration file does not exist
-import JSZipUtils from 'jszip-utils';
-import { useEffect, useState } from 'react';
-import JSZip from 'jszip';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
-import { LoadVideo } from '@components/LoadVideo';
-import { VideoContent } from '@components/VideoContent';
+
+// Components
+import VideoContent from '@components/VideoContent';
+
 
 /**
  * Displays the History Video content and structure
@@ -21,8 +16,6 @@ export const HistoryPage = () => {
    * .....................................................
    * Local State Hooks
    */
-
-  const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
 
   /**
    * .....................................................
@@ -39,34 +32,7 @@ export const HistoryPage = () => {
   /**
    * Handle the unzipping of Video Content logic.
    */
-  useEffect(() => {
-    const jsZip = new JSZip();
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    JSZipUtils.getBinaryContent(
-      historyVideo,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (err: any, data: any) => {
-        if (err) {
-          throw err;
-        }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        jsZip.loadAsync(data).then(
-          (zip) => {
-            void zip
-              .file(`history.mp4`)
-              ?.async('blob')
-              .then((res) => {
-                setVideoBlob(res);
-              });
-          },
-          (e) => {
-            console.log(e);
-          },
-        );
-      },
-    );
-  }, []);
 
   /**
    * .....................................................
@@ -93,7 +59,7 @@ export const HistoryPage = () => {
 
         {/* Video Content */}
 
-        {!videoBlob ? <LoadVideo /> : <VideoContent videoBlob={videoBlob} />}
+        <VideoContent videoUrl="/videos/history/history.m3u8" />
 
         {/* Buttons */}
 

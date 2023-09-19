@@ -9,6 +9,8 @@ import { Greeter } from './Greeter';
 import { Table } from './Table';
 import { Title } from './Title';
 
+import VideoContent from '@components/VideoContent';
+
 /**
  * .....................................................
  * TYPES AND INTERFACES
@@ -34,43 +36,14 @@ export const GreetingsPage = ({
    * Local State Hooks
    */
 
-  const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
+
 
   /**
    * .....................................................
    * useEffects
    */
 
-  useEffect(() => {
-    if (currentGreeter !== null) {
-      const jsZip = new JSZip();
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-      JSZipUtils.getBinaryContent(
-        Greeters[currentGreeter]?.video,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (err: any, data: any) => {
-          if (err) {
-            throw err;
-          }
 
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          jsZip.loadAsync(data).then(
-            (zip) => {
-              void zip
-                .file(`greeting_${currentGreeter + 1}.mp4`)
-                ?.async('blob')
-                .then((res) => {
-                  setVideoBlob(res);
-                });
-            },
-            (e) => {
-              console.log(e);
-            },
-          );
-        },
-      );
-    }
-  }, [currentGreeter]);
 
   /**
    * .....................................................
@@ -80,11 +53,10 @@ export const GreetingsPage = ({
   return (
     <div className="flex w-full h-full py-6 justify-center items-center overflow-hidden ">
       <div
-        className={`flex flex-col w-full ${
-          currentGreeter !== null
-            ? 'xl:w-5/6 h-4/6 md:h-5/6 lg:h-full'
-            : 'xl:w-1/2 h-full'
-        } h-4/6 md:h-5/6 lg:h-full px-2 md:mx-6 md:p-4 md:pb-8 bg-backgroundTransparent rounded-xl`}
+        className={`flex flex-col w-full ${currentGreeter !== null
+          ? 'xl:w-5/6 h-4/6 md:h-5/6 lg:h-full'
+          : 'xl:w-1/2 h-full'
+          } h-4/6 md:h-5/6 lg:h-full px-2 md:mx-6 md:p-4 md:pb-8 bg-backgroundTransparent rounded-xl`}
         style={{
           transition:
             'width 1s cubic-bezier(0.4, 0, 0.2, 1), height 1s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -100,10 +72,8 @@ export const GreetingsPage = ({
              */
             <Greeter
               currentGreeter={currentGreeter}
-              videoBlob={videoBlob}
               setCurrentGreeter={setCurrentGreeter}
               setIsOpen={setIsOpen}
-              setVideoBlob={setVideoBlob}
             />
           ) : (
             /**
