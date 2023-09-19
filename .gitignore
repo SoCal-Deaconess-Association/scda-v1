@@ -355,5 +355,5 @@ dist
 .eslintcache
 .eslintignore
 .prettierignore
-.prettierrc
 .timetracker
+package-lock.json
