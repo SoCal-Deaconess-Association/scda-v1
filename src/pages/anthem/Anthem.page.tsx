@@ -1,11 +1,6 @@
-// @ts-expect-error types do not exist
 // eslint-disable-next-line
-import anthemVideo from '@assets/videos/anthem.zip';
-// @ts-expect-error types do not exist
+const anthemVideo = 'https://www.youtube.com/embed/ZPeF3wIwuUw?si=3k4a6iizfoI7Jm_R';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import JSZipUtils from 'jszip-utils';
-import { useEffect, useState } from 'react';
-import JSZip from 'jszip';
 import { LoadVideo } from '@components/LoadVideo';
 import { VideoContent } from '@components/VideoContent';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
@@ -17,12 +12,6 @@ import { useNavigate } from 'react-router-dom';
  */
 
 export const AnthemPage = () => {
-  /**
-   * .....................................................
-   * Local State Hooks
-   */
-
-  const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
 
   /**
    * .....................................................
@@ -30,40 +19,6 @@ export const AnthemPage = () => {
    */
 
   const navigate = useNavigate();
-
-  /**
-   * .....................................................
-   * useEffects
-   */
-
-  useEffect(() => {
-    const jsZip = new JSZip();
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-    JSZipUtils.getBinaryContent(
-      anthemVideo,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (err: any, data: any) => {
-        if (err) {
-          throw err;
-        }
-
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        jsZip.loadAsync(data).then(
-          (zip) => {
-            void zip
-              .file(`anthem.mp4`)
-              ?.async('blob')
-              .then((res) => {
-                setVideoBlob(res);
-              });
-          },
-          (e) => {
-            console.log(e);
-          },
-        );
-      },
-    );
-  }, []);
 
   /**
    * .....................................................
@@ -90,7 +45,7 @@ export const AnthemPage = () => {
 
         {/* Video Content */}
 
-        {!videoBlob ? <LoadVideo /> : <VideoContent videoBlob={videoBlob} />}
+        {anthemVideo ? <VideoContent videoLink={anthemVideo} /> : <LoadVideo />}
 
         {/* Buttons */}
 
