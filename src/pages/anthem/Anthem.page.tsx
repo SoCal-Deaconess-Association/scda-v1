@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-const anthemVideo = 'https://www.youtube.com/embed/ZPeF3wIwuUw?si=3k4a6iizfoI7Jm_R';
+const anthemVideo = 'https://drive.google.com/file/d/1uWH4V5zAoMPxM9a4zm2T6Q4G-Wzu5uFq/preview';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { LoadVideo } from '@components/LoadVideo';
 import { VideoContent } from '@components/VideoContent';

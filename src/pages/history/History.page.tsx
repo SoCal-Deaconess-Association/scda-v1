@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-const historyVideo = 'https://www.youtube.com/embed/ih3YX4Abh4g?si=irt_0nGn2RdoQL2h'
+const historyVideo = 'https://drive.google.com/file/d/1xO41Nl6yctM30WuY8rrSMbVVXR0_3HVs/preview'
 // eslint-disable-next-line
 import { useNavigate } from 'react-router-dom';
 import { PAGES, PageType } from '@assets/utils/pages.utils';
