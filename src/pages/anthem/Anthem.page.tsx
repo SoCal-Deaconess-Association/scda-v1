@@ -8,10 +8,6 @@ import { useNavigate } from 'react-router-dom';
  */
 
 export const AnthemPage = () => {
-  /**
-   * .....................................................
-   * Local State Hooks
-   */
 
   /**
    * .....................................................
@@ -19,11 +15,6 @@ export const AnthemPage = () => {
    */
 
   const navigate = useNavigate();
-
-  /**
-   * .....................................................
-   * useEffects
-   */
 
   /**
    * .....................................................
@@ -50,7 +41,7 @@ export const AnthemPage = () => {
 
         {/* Video Content */}
 
-        <VideoContent videoUrl="/videos/anthem/anthem.m3u8" /> {/* TODO: Add video URL for Anthem */}
+        <VideoContent videoId={'ZPeF3wIwuUw'} />
 
         {/* Buttons */}
 

@@ -1,24 +1,6 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import greeting_2 from '@assets/videos/greeting_2.zip';
-import greeting_3 from '@assets/videos/greeting_3.zip';
-import greeting_4 from '@assets/videos/greeting_4.zip';
-import greeting_5 from '@assets/videos/greeting_5.zip';
-import greeting_6 from '@assets/videos/greeting_6.zip';
-import greeting_7 from '@assets/videos/greeting_7.zip';
-import greeting_8 from '@assets/videos/greeting_8.zip';
-import greeting_9 from '@assets/videos/greeting_9.zip';
-import greeting_10 from '@assets/videos/greeting_10.zip';
-import greeting_11 from '@assets/videos/greeting_11.zip';
-import greeting_12 from '@assets/videos/greeting_12.zip';
-import greeting_13 from '@assets/videos/greeting_13.zip';
-import greeting_14 from '@assets/videos/greeting_14.zip';
-import greeting_15 from '@assets/videos/greeting_15.zip';
-import greeting_16 from '@assets/videos/greeting_16.zip';
-import greeting_17 from '@assets/videos/greeting_17.zip';
-import greeting_18 from '@assets/videos/greeting_18.zip';
-
 import map_1 from '@assets/images/maps/map_1.jpg';
 import map_2 from '@assets/images/maps/map_2.jpg';
 import map_3 from '@assets/images/maps/map_3.jpg';
@@ -150,7 +132,7 @@ export const Greeters: Greeter[] = [
     name: 'Agnes Dauz Cadlaon',
     year: 1981,
     province: Province.pangasinan,
-    video: '/videos/greeting_1/greeting_1.m3u8',
+    video: 'nW-0ltKiihk',
     map: map_1,
     stories: [story_1_1, story_1_2, story_1_3],
   },
@@ -160,7 +142,7 @@ export const Greeters: Greeter[] = [
     name: 'Alice Pinky Ramirez Oreas',
     year: 1987,
     province: Province.pangasinan,
-    video: '/videos/greeting_2/greeting_2.m3u8',
+    video: '0W1DXrWKgIA',
     map: map_2,
     stories: [story_2_1, story_2_2, story_2_3],
   },
@@ -170,7 +152,7 @@ export const Greeters: Greeter[] = [
     name: 'Araceli Gorospe Lambinicio',
     year: 1961,
     province: Province.pampanga,
-    video: '/videos/greeting_3/greeting_3.m3u8',
+    video: '',
     map: map_3,
     stories: [story_3_1, story_3_2, story_3_3],
   },
@@ -180,7 +162,7 @@ export const Greeters: Greeter[] = [
     name: 'Brenda Faye Reyes DePano',
     year: 1983,
     province: Province.nuevaEcija,
-    video: '/videos/greeting_4/greeting_4.m3u8',
+    video: '',
     map: map_4,
     stories: [story_4_1, story_4_2, story_4_3],
   },
@@ -190,7 +172,7 @@ export const Greeters: Greeter[] = [
     name: 'Crispina Estaris',
     year: 1954,
     province: Province.cagayan,
-    video: '/videos/greeting_5/greeting_5.m3u8',
+    video: '',
     map: map_5,
     stories: [story_5_1, story_5_2, story_5_3, story_5_4],
   },
@@ -200,7 +182,7 @@ export const Greeters: Greeter[] = [
     name: 'Edna Soriano Santos',
     year: 1959,
     province: Province.manila,
-    video: '/videos/greeting_6/greeting_6.m3u8',
+    video: '',
     map: map_6,
     stories: [story_6_1, story_6_2, story_6_3],
   },
@@ -210,7 +192,7 @@ export const Greeters: Greeter[] = [
     name: 'Eunice Bautista Laureano',
     year: 1955,
     province: Province.bataan,
-    video: '/videos/greeting_7/greeting_7.m3u8',
+    video: '',
     map: map_7,
     stories: [story_7_1, story_7_2, story_7_3, story_7_4],
   },
@@ -220,7 +202,7 @@ export const Greeters: Greeter[] = [
     name: 'Fe Isabel Cruz Gorospe',
     year: 1957,
     province: Province.manila,
-    video: '/videos/greeting_8/greeting_8.m3u8',
+    video: '',
     map: map_8,
     stories: [story_8_1, story_8_2, story_8_3],
   },
@@ -230,7 +212,7 @@ export const Greeters: Greeter[] = [
     name: 'Helen Rabina Sicat',
     year: null,
     province: Province.tarlac,
-    video: '/videos/greeting_9/greeting_9.m3u8',
+    video: '',
     map: map_9,
     stories: [story_9_1, story_9_2, story_9_3],
   },
@@ -240,7 +222,7 @@ export const Greeters: Greeter[] = [
     name: 'Lila Valencia Lusung',
     year: 1952,
     province: Province.tarlac,
-    video: '/videos/greeting_10/greeting_10.m3u8',
+    video: '',
     map: map_10,
     stories: [story_10_1, story_10_2, story_10_3],
   },
@@ -250,7 +232,7 @@ export const Greeters: Greeter[] = [
     name: 'Noemi Bagasin Villanueva',
     year: 1983,
     province: Province.cagayan,
-    video: '/videos/greeting_11/greeting_11.m3u8',
+    video: '',
     map: map_11,
     stories: [story_11_1, story_11_2, story_11_3],
   },
@@ -260,7 +242,7 @@ export const Greeters: Greeter[] = [
     name: 'Olive Asis Dugay',
     year: 1981,
     province: Province.nuevaVizcaya,
-    video: '/videos/greeting_12/greeting_12.m3u8',
+    video: '',
     map: map_12,
     stories: [story_12_1, story_12_2, story_12_3],
   },
@@ -270,7 +252,7 @@ export const Greeters: Greeter[] = [
     name: 'Pacita Gomintong DelAmen',
     year: 1967,
     province: Province.llocosSur,
-    video: '/videos/greeting_13/greeting_13.m3u8',
+    video: '',
     map: map_13,
     stories: [story_13_1, story_13_2, story_13_3, story_13_4],
   },
@@ -280,7 +262,7 @@ export const Greeters: Greeter[] = [
     name: 'Rosario Nicolas Pangilinan',
     year: 1963,
     province: Province.bulacan,
-    video: '/videos/greeting_14/greeting_14.m3u8',
+    video: '',
     map: map_14,
     stories: [story_14_1, story_14_2, story_14_3],
   },
@@ -290,7 +272,7 @@ export const Greeters: Greeter[] = [
     name: 'Fabiola Sanchez Carreon',
     year: 1973,
     province: Province.pampanga,
-    video: '/videos/greeting_15/greeting_15.m3u8',
+    video: '',
     map: map_15,
     stories: [story_15_1, story_15_2, story_15_3, story_15_4, story_15_5],
   },
@@ -300,7 +282,7 @@ export const Greeters: Greeter[] = [
     name: 'Cecil Bucud Arceo',
     year: 1996,
     province: Province.pampanga,
-    video: '/videos/greeting_16/greeting_16.m3u8',
+    video: '',
     map: map_16,
     stories: [story_16_1, story_16_2, story_16_3],
   },
@@ -310,7 +292,7 @@ export const Greeters: Greeter[] = [
     name: 'Erlinda Villanueva Pastrana',
     year: 1961,
     province: Province.camarinesSur,
-    video: '/videos/greeting_17/greeting_17.m3u8',
+    video: '',
     map: map_17,
     stories: [story_17_1, story_17_2, story_17_3, story_17_4, story_17_5],
   },
@@ -320,7 +302,7 @@ export const Greeters: Greeter[] = [
     name: 'Perla Cunanan Baker',
     year: 1971,
     province: Province.tarlac,
-    video: '/videos/greeting_18/greeting_18.m3u8',
+    video: '',
     map: map_18,
     stories: [
       story_18_1,

@@ -5,17 +5,12 @@ import { PAGES, PageType } from '@assets/utils/pages.utils';
 // Components
 import VideoContent from '@components/VideoContent';
 
-
 /**
  * Displays the History Video content and structure
  * for the History tab.
  */
 
 export const HistoryPage = () => {
-  /**
-   * .....................................................
-   * Local State Hooks
-   */
 
   /**
    * .....................................................
@@ -23,16 +18,6 @@ export const HistoryPage = () => {
    */
 
   const navigate = useNavigate();
-
-  /**
-   * .....................................................
-   * useEffects
-   */
-
-  /**
-   * Handle the unzipping of Video Content logic.
-   */
-
 
   /**
    * .....................................................
@@ -58,8 +43,7 @@ export const HistoryPage = () => {
         </div>
 
         {/* Video Content */}
-
-        <VideoContent videoUrl="/videos/history/history.m3u8" />
+        <VideoContent videoId="ih3YX4Abh4g" />
 
         {/* Buttons */}
 

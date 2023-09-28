@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
+import Vue from '@vitejs/plugin-vue';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   base: '/',
@@ -33,7 +34,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
 // https://vitejs.dev/config/
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
-  plugins: [react(), VitePWA(pwaOptions)],
+  plugins: [react(), Vue(), VitePWA(pwaOptions)],
   base: '/',
   resolve: {
     alias: {
@@ -45,7 +46,15 @@ export default defineConfig({
       '@pages': '/src/pages',
       '@slices': '/src/slices',
       '@models': '/src/models',
+      '@videos': '/src/videos',
     },
   },
   assetsInclude: ['**/*.zip'],
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]',
+      },
+    },
+  },
 });

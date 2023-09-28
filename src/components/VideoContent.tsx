@@ -1,43 +1,29 @@
-import React, { useRef, useEffect } from 'react';
-import Hls from 'hls.js';
+import React from 'react';
+import YouTube from 'react-youtube';
 
 interface VideoContentProps {
-  videoUrl: string;
+  videoId: string;
 }
 
-const VideoContent: React.FC<VideoContentProps> = ({ videoUrl }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+const VideoContent: React.FC<VideoContentProps> = ({ videoId }) => {
+  const aspectRatio = '56.25%'; // 16:9 aspect ratio (9 / 16 * 100%)
 
-  useEffect(() => {
-    // Check if HLS is supported
-    if (videoRef.current) {
-      const hls = new Hls();
-      hls.loadSource(videoUrl);
-      hls.attachMedia(videoRef.current);
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        videoRef.current?.play();
-      });
-
-      return () => {
-        hls.detachMedia();
-        hls.destroy();
-      };
-    }
-  }, [videoUrl]);
+  const opts = {
+    height: '100%', // Height will be determined by the aspect ratio
+    width: '100%',  // Width will be capped by max-w-xl
+    playerVars: {
+      autoplay: 1,
+      rel: 0,
+      showinfo: 0,
+      modestbranding: 1,
+    },
+  };
 
   return (
-    <div className="flex justify-center items-center w-full h-2/3 lg:h-5/6 ">
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video
-        key="history-video"
-        className="h-fit max-h-full w-fit rounded-lg"
-        controls
-        ref={videoRef} // Add ref attribute to the video element
-      >
-        {/* Remove the <source> element */}
-        Your current browser does not support the video tag. Try running on Google
-        Chrome browser.
-      </video>
+    <div className="relative w-full max-w-960 max-h-540 mx-auto" style={{ paddingBottom: aspectRatio }}>
+      <div className="absolute top-0 left-0 w-full h-full">
+        <YouTube videoId={videoId} opts={opts} className="w-full h-full" />
+      </div>
     </div>
   );
 };

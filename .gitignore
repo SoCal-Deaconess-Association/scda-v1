@@ -351,9 +351,3 @@ MigrationBackup/
 
 public/images
 dist
-
-.eslintcache
-.eslintignore
-.prettierignore
-.timetracker
-package-lock.json

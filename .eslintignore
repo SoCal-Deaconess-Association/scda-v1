@@ -1,0 +1,8 @@
+*.css
+build
+dist
+node_modules
+Template.tsx
+**/*.js
+*.cjs
+vite.config.ts
